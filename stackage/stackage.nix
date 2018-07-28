@@ -1,7 +1,7 @@
 let
   inherit (builtins) attrNames attrValues fetchurl fromJSON  listToAttrs readFile;
 
-  baseUrl = import ./baseUrl.nix;
+  baseUrl = readFile ./baseUrl;
   sources = fromJSON (readFile ./sources.json);
 
   # We are creating overlays so better not to depend on nixpkgs yet

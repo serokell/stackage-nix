@@ -1,6 +1,4 @@
-/*
-let name = "..."; in
-*/
+let name = builtins.readFile ./name; in
 
 self: super:
 
