@@ -8,8 +8,8 @@ pkgs.stdenvNoCC.mkDerivation {
   name = "stackage";
 
   src = fetchTarball {
-    url = "https://github.com/typeable/nixpkgs-stackage/archive/53db4b166083834d6b9bccb6826ae62586b56dd3.tar.gz";
-    sha256 = "0axb0jhrwlswfl8yma23i2jkbqjbq88iykhr0sh5accpvd81pa3l";
+    url = "https://github.com/typeable/nixpkgs-stackage/archive/0c2597f1d300ea4d124c2078777d1bb598d6995f.tar.gz";
+    sha256 = "1imd6l6kc8ncw1jc7z9aj6spmm0a21l64ig45xfi0640df7v9x2r";
   };
 
   nativeBuildInputs = [ pkgs.nix ];
