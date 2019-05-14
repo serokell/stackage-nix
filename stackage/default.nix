@@ -48,7 +48,7 @@ pkgs.stdenvNoCC.mkDerivation {
     echo "{"
     for snapshotName in $snapshots; do
       printf '"%s": {"file": "%s.tar.gz", "sha256": "' "$snapshotName" "$snapshotName"
-      nix-prefetch-url --type sha256 --unpack "file://$out/$snapshotName.tar.gz" | tr -d "\n"
+      nix-hash --type sha256 --base32 source/stackage/"$snapshotName" | tr -d "\n"
       echo '"},'
     done
     exec 1<&4
@@ -62,6 +62,6 @@ pkgs.stdenvNoCC.mkDerivation {
 
     tar -czf "$out/default.nix.tar.gz" stackage/
 
-    nix-prefetch-url --type sha256 --unpack "file://$out/default.nix.tar.gz" >"$out/default.nix.tar.gz.sha256"
+    nix-hash --type sha256 --base32 stackage/ > $out/default.nix.tar.gz.sha256
   '';
 }
